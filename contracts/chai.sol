@@ -13,14 +13,14 @@ contract chai {
     address payable owner; //owner is going to receive funds
 
     constructor() {
-        owner = payable(msg.sender);
+        owner = payable(msg.sender); 
     }
 
     function buyChai(
         string calldata name,
         string calldata message
     ) external payable {
-        require(msg.value > 0, "Please pay more than 0 ether");
+        require(msg.value > 0, "Please pay more than ZERO Ether");
         owner.transfer(msg.value);
         memos.push(Memo(name, message, block.timestamp, msg.sender));
     }
